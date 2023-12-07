@@ -62,6 +62,8 @@ genres = ['Action',
  'War',
  'Western']
 
+git_url = "https://raw.githubusercontent.com/jungmc2/movie_recommender/main/"
+
 
 # In[26]:
 
