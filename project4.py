@@ -301,7 +301,7 @@ def generate_movie_recommendations(n_clicks, *ratings):
         combined = pd.DataFrame({'newuser':ratings}, index=to_rate)
         
         system2_df = get_system_data()
-        newuser = system2_df.T.merge(combined, how='left', left_index=True, right_index=True)['newuser']
+        newuser = system2_df.merge(combined, how='left', left_index=True, right_index=True)['newuser']
         predictions = myIBCF(newuser)
         
         movies2 = get_movies().loc[:,['MovieID','Title','image_url']]
