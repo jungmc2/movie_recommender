@@ -27,13 +27,7 @@ def get_movies():
 
 def get_system_data():
     git_url = "https://raw.githubusercontent.com/jungmc2/movie_recommender/main/"
-    #Import data containing data needed for system 2
-    system2_df_1 = pd.read_csv(git_url + 'system2_df_1.csv', index_col =0)
-    system2_df_2 = pd.read_csv(git_url + 'system2_df_2.csv', index_col =0)
-    system2_df_3 = pd.read_csv(git_url + 'system2_df_3.csv', index_col =0)
-    system2_df = pd.concat([system2_df_1, system2_df_2, system2_df_3], ignore_index=False)
-    
-    return system2_df
+    return pd.read_csv(git_url + 'system2_df.csv', index_col=0)
 
 def get_similarity():
     git_url = "https://raw.githubusercontent.com/jungmc2/movie_recommender/main/"
