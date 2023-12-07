@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 import dash
@@ -11,47 +11,63 @@ import pandas as pd
 import numpy as np
 
 
-# In[28]:
-
-
-git_url = "https://raw.githubusercontent.com/jungmc2/movie_recommender/main/"
-
-#Import ratings data 
-ratings = pd.read_csv(git_url + 'ratings.dat', sep='::', engine = 'python', header=None)
-ratings.columns = ['UserID', 'MovieID', 'Rating', 'Timestamp']
-
-#Import movies data 
-movies = pd.read_csv(git_url + 'movies.dat', sep='::', engine = 'python',
-                     encoding="ISO-8859-1", header = None)
-movies.columns = ['MovieID', 'Title', 'Genres']
-
-small_image_url = "https://liangfgithub.github.io/MovieImages/"
-movies['image_url'] = movies.MovieID.apply(lambda x: small_image_url + str(x) + ".jpg")
-
-#Combine the 2 datasets
-combined = movies.merge(ratings, on=['MovieID'], how = 'left')
-
-
-#Get unique genres
-genres = list(
-    sorted(set([genre for genres in movies.Genres.unique() for genre in genres.split("|")]))
-)
-
-#Import data containing data needed for system 2
-system2_df_1 = pd.read_csv(git_url + 'system2_df_1.csv', index_col =0)
-system2_df_2 = pd.read_csv(git_url + 'system2_df_2.csv', index_col =0)
-system2_df_3 = pd.read_csv(git_url + 'system2_df_3.csv', index_col =0)
-system2_df = pd.concat([system2_df_1, system2_df_2, system2_df_3], ignore_index=False)
-
-#Import similarity matrix 
-new_s = pd.read_csv(git_url + 's_matrix.csv', index_col = 0)
-
-
 # In[24]:
 
 
+def get_movies():
+    git_url = "https://raw.githubusercontent.com/jungmc2/movie_recommender/main/"
+    
+    movies = pd.read_csv(git_url + 'movies.dat', sep='::', engine = 'python',
+                     encoding="ISO-8859-1", header = None)
+    movies.columns = ['MovieID', 'Title', 'Genres']
+    
+    small_image_url = "https://liangfgithub.github.io/MovieImages/"
+    movies['image_url'] = movies.MovieID.apply(lambda x: small_image_url + str(x) + ".jpg")
+    return movies
+
+def get_system_data():
+    git_url = "https://raw.githubusercontent.com/jungmc2/movie_recommender/main/"
+    #Import data containing data needed for system 2
+    system2_df_1 = pd.read_csv(git_url + 'system2_df_1.csv', index_col =0)
+    system2_df_2 = pd.read_csv(git_url + 'system2_df_2.csv', index_col =0)
+    system2_df_3 = pd.read_csv(git_url + 'system2_df_3.csv', index_col =0)
+    system2_df = pd.concat([system2_df_1, system2_df_2, system2_df_3], ignore_index=False)
+    
+    return system2_df
+
+def get_similarity():
+    git_url = "https://raw.githubusercontent.com/jungmc2/movie_recommender/main/"
+    return pd.read_csv(git_url + 's_matrix.csv', index_col = 0)
+
+
+# In[25]:
+
+
+genres = ['Action',
+ 'Adventure',
+ 'Animation',
+ "Children's",
+ 'Comedy',
+ 'Crime',
+ 'Documentary',
+ 'Drama',
+ 'Fantasy',
+ 'Film-Noir',
+ 'Horror',
+ 'Musical',
+ 'Mystery',
+ 'Romance',
+ 'Sci-Fi',
+ 'Thriller',
+ 'War',
+ 'Western']
+
+
+# In[26]:
+
+
 def myIBCF(newuser):
-    s = new_s
+    s = get_similarity()
     predictions = np.zeros(len(newuser))
     
     unrated_movies = np.where(newuser.isna())[0]
@@ -73,11 +89,11 @@ def myIBCF(newuser):
     return rec_df.iloc[:10,]
 
 
-# In[31]:
+# In[27]:
 
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-server = app.server
+
 app.layout = dbc.Container(
     [
         dbc.Row(
@@ -287,11 +303,12 @@ def generate_movie_recommendations(n_clicks, *ratings):
         user_ratings = list(ratings)
         to_rate = ['m1','m3','m10','m15','m18','m27','m9','m21']
         combined = pd.DataFrame({'newuser':ratings}, index=to_rate)
+        
+        system2_df = get_system_data()
         newuser = system2_df.T.merge(combined, how='left', left_index=True, right_index=True)['newuser']
         predictions = myIBCF(newuser)
-        print(predictions )
         
-        movies2 = movies.copy().loc[:,['MovieID','Title','image_url']]
+        movies2 = get_movies().loc[:,['MovieID','Title','image_url']]
         movies2['MovieID'] = movies2['MovieID'].apply(lambda x: 'm' + str(x))
         
         recommendations = movies2.merge(predictions, how = 'inner', left_on='MovieID',right_on ='movie_id')
@@ -312,7 +329,7 @@ def generate_movie_recommendations(n_clicks, *ratings):
     return []
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8055)
+    app.run_server(debug=True, port=8057)
 
 
 # In[ ]:
