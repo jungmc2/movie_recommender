@@ -331,7 +331,7 @@ def generate_movie_recommendations(n_clicks, *ratings):
     return []
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8057)
+    app.run_server(debug=True)
 
 
 # In[ ]:
