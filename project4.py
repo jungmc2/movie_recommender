@@ -106,7 +106,7 @@ app.layout = dbc.Container(
                             [
                                 html.P('Step 1: Please select your favorite genre'),
                                 dcc.Dropdown(
-                                    id='dropdown-menu',
+                                    id='Genre Selection',
                                     options=[{'label': option, 'value': option} for option in genres],
                                     value=genres[0],
                                     multi=False,
@@ -115,12 +115,12 @@ app.layout = dbc.Container(
                                 html.P('Step 2: View movie recommendations'),
                                 dbc.Button(
                                     'Click to display movie recommendations',
-                                    id='display-button',
+                                    id='Display Movies',
                                     n_clicks=0,
                                     color='primary',
                                     className="object",
                                 ),
-                                html.Div(id='movie-recommendations'),
+                                html.Div(id='Movie Recommendations'),
                             ]
                         )
                     ],
@@ -215,18 +215,18 @@ app.layout = dbc.Container(
                                             className="object",
                                         ),                                        dbc.Button(
                                             'Submit Ratings',
-                                            id='submit-ratings-button',
+                                            id='Ratings Submission',
                                             n_clicks=0,
                                             color='primary',
                                             className="object",
                                         ),
                                     ]
                                 ),
-                                html.Div(id='movie-recommendations2'),
+                                html.Div(id='Movie Recommendations2'),
                             ]
                         ),
                         html.H3("Here are some movie recommendations"),
-                        html.Div(id='movie-recommendations2'),
+                        html.Div(id='Movie Recommendations3'),
                     ],
                 ),
             ]
@@ -236,9 +236,9 @@ app.layout = dbc.Container(
 )
 
 @app.callback(
-    Output('movie-recommendations', 'children'),
-    [Input('display-button', 'n_clicks')],
-    [State('dropdown-menu', 'value')]
+    Output('Movie Recommendations', 'children'),
+    [Input('Display Movies', 'n_clicks')],
+    [State('Genre Selection', 'value')]
 )
 def update_movie_list(n_clicks, selected_genre):
     if n_clicks > 0:
@@ -258,8 +258,8 @@ def update_movie_list(n_clicks, selected_genre):
 
 
 @app.callback(
-    Output('movie-recommendations2', 'children'),
-    [Input('submit-ratings-button', 'n_clicks')],
+    Output('Movie Recommendations2', 'children'),
+    [Input('Ratings Submission', 'n_clicks')],
     [State(f'rating{i}', 'value') for i in range(1, 9)]
 )
 def update_ratings_list(n_clicks, *ratings):
@@ -278,10 +278,9 @@ def process_ratings_data(movie_data, user_ratings):
     return combined_data
 
 
-
 @app.callback(
-    Output('movie-recommendations2', 'children'),
-    [Input('submit-ratings-button', 'n_clicks')],
+    Output('Movie Recommendations3', 'children'),
+    [Input('Ratings Submission', 'n_clicks')],
     [State(f'rating{i}', 'value') for i in range(1, 9)]
 )
 def generate_movie_recommendations(n_clicks, *ratings):
