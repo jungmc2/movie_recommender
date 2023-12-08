@@ -99,127 +99,127 @@ app.layout = dbc.Container(
         ),
         dcc.Tabs(
             [
-                dcc.Tab(
-                    label='Recommendation Based on Genres',
-                    children=[
-                        html.Div(
-                            [
-                                html.P('Step 1: Please select your favorite genre'),
-                                dcc.Dropdown(
-                                    id='Genre Selection',
-                                    options=[{'label': option, 'value': option} for option in genres],
-                                    value=genres[0],
-                                    multi=False,
-                                    className="object",
-                                ),
-                                html.P('Step 2: View movie recommendations'),
-                                dbc.Button(
-                                    'Click to display movie recommendations',
-                                    id='Display Movies',
-                                    n_clicks=0,
-                                    color='primary',
-                                    className="object",
-                                ),
-                                html.Div(id='Movie Recommendations'),
-                            ]
-                        )
-                    ],
+            dcc.Tab(
+                label='Recommendation Based on Genres',
+                children=[
+                html.Div(
+                [
+                    html.P('Step 1: Please select your favorite genre'),
+                    dcc.Dropdown(
+                        id='Genre Selection',
+                        options=[{'label': option, 'value': option} for option in genres],
+                        value=genres[0],
+                        multi=False,
+                        className="object",
+                    ),
+                    html.P('Step 2: View movie recommendations'),
+                    dbc.Button(
+                        'Click to display movie recommendations',
+                        id='Display Movies',
+                        n_clicks=0,
+                        color='primary',
+                        className="object",
+                    ),
+                    html.Div(id='Movie Recommendations'),
+                ]
+                    )
+                ],
                 ),
                 dcc.Tab(
                     label='Recommendation Based on User Ratings',
                     children=[
-                        html.Div(
+                    html.Div(
                             [
                                 html.P('Please Rate the movies below '),
                                 html.Div(
                                     [
-                                        dbc.Row(
-                                            [
-                                                dbc.Col(
-                                                    [
-                                                        html.H3('Tom and Huck (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),  # Adjust font size and alignment
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/8.jpg', style={'width': '100%', 'height': '200px'}),
-                                                        dcc.Input(id='rating1', type='number', min=1, max=5, step=1, value=1),
-                                                    ],
-                                                    md=3,  
-                                                ),
-                                                
-                                                dbc.Col(
-                                                    [
-                                                        html.H3('Across the Sea of Time (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/37.jpg', style={'width': '100%', 'height': '200px'}),
-                                                        dcc.Input(id='rating2', type='number', min=1, max=5, step=1, value=1),
-                                                    ],
-                                                    md=3,
-                                                ),
-                                                    dbc.Col(
-                                                    [
-                                                        html.H3('It Takes Two (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),  # Adjust font size and alignment
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/38.jpg', style={'width': '100%', 'height': '200px'}),
-                                                        dcc.Input(id='rating3', type='number', min=1, max=5, step=1, value=1),
-                                                    ],
-                                                    md=3,  
-                                                ),
-                                                
-                                                dbc.Col(
-                                                    [
-                                                        html.H3('Big Green, The (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/54.jpg', style={'width': '100%', 'height': '200px'}),
-                                                        dcc.Input(id='rating4', type='number', min=1, max=5, step=1, value=1),
-                                                    ],
-                                                    md=3,
-                                                )
-                                                
-                                            ],
-                                            className="object",
-                                        ),
+                            dbc.Row(
+                                [
+                                    dbc.Col(
+                                        [
+                                            html.H3('Tom and Huck (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),  # Adjust font size and alignment
+                                            html.Img(src='https://liangfgithub.github.io/MovieImages/8.jpg', style={'width': '100%', 'height': '200px'}),
+                                            dcc.Input(id='rating1', type='number', min=1, max=5, step=1, value=1),
+                                        ],
+                                        md=3,  
+                                    ),
                                     
-                                       dbc.Row(
-                                            [
-                                                dbc.Col(
-                                                    [
-                                                        html.H3('Two if by Sea (1996)', style={'fontSize': '20px', 'textAlign': 'center'}),  # Adjust font size and alignment
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/18.jpg', style={'width': '100%', 'height': '200px'}),
-                                                        dcc.Input(id='rating5', type='number', min=1, max=5, step=1, value=1),
-                                                    ],
-                                                    md=3,  
-                                                ),
-                                                
-                                                dbc.Col(
-                                                    [
-                                                        html.H3('Big Bully (1996)', style={'fontSize': '20px', 'textAlign': 'center'}),
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/75.jpg', style={'width': '100%', 'height': '200px'}),
-                                                        dcc.Input(id='rating6', type='number', min=1, max=5, step=1, value=1),
-                                                    ],
-                                                    md=3,
-                                                ),
-                                                    dbc.Col(
-                                                    [
-                                                        html.H3('Nico Icon (1995)', style={'fontSize': '20px', 'textAlign': 'center'}), 
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/77.jpg', style={'width': '100%', 'height': '200px'}),
-                                                        dcc.Input(id='rating7', type='number', min=1, max=5, step=1, value=1),
-                                                    ],
-                                                    md=3, 
-                                                ),
-                                                
-                                                dbc.Col(
-                                                    [
-                                                        html.H3('Shopping (1994)', style={'fontSize': '20px', 'textAlign': 'center'}),
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/98.jpg', style={'width': '100%', 'height': '200px'}),
-                                                        dcc.Input(id='rating8', type='number', min=1, max=5, step=1, value=1),
-                                                    ],
-                                                    md=3,
-                                                )
-                                                
-                                            ],
-                                            className="object",
-                                        ),                                        dbc.Button(
-                                            'Submit Ratings',
-                                            id='Ratings Submission',
-                                            n_clicks=0,
-                                            color='primary',
-                                            className="object",
-                                        ),
+                                    dbc.Col(
+                                        [
+                                            html.H3('Across the Sea of Time (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),
+                                            html.Img(src='https://liangfgithub.github.io/MovieImages/37.jpg', style={'width': '100%', 'height': '200px'}),
+                                            dcc.Input(id='rating2', type='number', min=1, max=5, step=1, value=1),
+                                        ],
+                                        md=3,
+                                    ),
+                                        dbc.Col(
+                                        [
+                                            html.H3('It Takes Two (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),  # Adjust font size and alignment
+                                            html.Img(src='https://liangfgithub.github.io/MovieImages/38.jpg', style={'width': '100%', 'height': '200px'}),
+                                            dcc.Input(id='rating3', type='number', min=1, max=5, step=1, value=1),
+                                        ],
+                                        md=3,  
+                                    ),
+                                    
+                                    dbc.Col(
+                                        [
+                                            html.H3('Big Green, The (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),
+                                            html.Img(src='https://liangfgithub.github.io/MovieImages/54.jpg', style={'width': '100%', 'height': '200px'}),
+                                            dcc.Input(id='rating4', type='number', min=1, max=5, step=1, value=1),
+                                        ],
+                                        md=3,
+                                    )
+                                    
+                                ],
+                                className="object",
+                            ),
+                        
+                           dbc.Row(
+                                [
+                                    dbc.Col(
+                                        [
+                                            html.H3('Two if by Sea (1996)', style={'fontSize': '20px', 'textAlign': 'center'}),  # Adjust font size and alignment
+                                            html.Img(src='https://liangfgithub.github.io/MovieImages/18.jpg', style={'width': '100%', 'height': '200px'}),
+                                            dcc.Input(id='rating5', type='number', min=1, max=5, step=1, value=1),
+                                        ],
+                                        md=3,  
+                                    ),
+                                    
+                                    dbc.Col(
+                                        [
+                                            html.H3('Big Bully (1996)', style={'fontSize': '20px', 'textAlign': 'center'}),
+                                            html.Img(src='https://liangfgithub.github.io/MovieImages/75.jpg', style={'width': '100%', 'height': '200px'}),
+                                            dcc.Input(id='rating6', type='number', min=1, max=5, step=1, value=1),
+                                        ],
+                                        md=3,
+                                    ),
+                                        dbc.Col(
+                                        [
+                                            html.H3('Nico Icon (1995)', style={'fontSize': '20px', 'textAlign': 'center'}), 
+                                            html.Img(src='https://liangfgithub.github.io/MovieImages/77.jpg', style={'width': '100%', 'height': '200px'}),
+                                            dcc.Input(id='rating7', type='number', min=1, max=5, step=1, value=1),
+                                        ],
+                                        md=3, 
+                                    ),
+                                    
+                                    dbc.Col(
+                                        [
+                                            html.H3('Shopping (1994)', style={'fontSize': '20px', 'textAlign': 'center'}),
+                                            html.Img(src='https://liangfgithub.github.io/MovieImages/98.jpg', style={'width': '100%', 'height': '200px'}),
+                                            dcc.Input(id='rating8', type='number', min=1, max=5, step=1, value=1),
+                                        ],
+                                        md=3,
+                                    )
+                                    
+                                ],
+                                className="object",
+                            ),                                        dbc.Button(
+                                'Submit Ratings',
+                                id='Ratings Submission',
+                                n_clicks=0,
+                                color='primary',
+                                className="object",
+                            ),
                                     ]
                                 ),
                                 html.Div(id='Movie Recommendations2'),
@@ -245,12 +245,12 @@ def update_movie_list(n_clicks, selected_genre):
         selected_data = pd.read_csv(git_url + selected_genre + ".csv")
         movie_list = [
             html.Div(
-                [
-                    html.H3(title),
-                    html.Img(src=image_url, style={'width': '200px', 'height': '200px'}),
-                ],
-                style={'margin-bottom': '20px'} 
-            )
+            [
+                html.H3(title),
+                html.Img(src=image_url, style={'width': '200px', 'height': '200px'}),
+            ],
+            style={'margin-bottom': '20px'} 
+        )
             for title, image_url in zip(selected_data['Title'], selected_data['image_url'])
         ]
         return movie_list
@@ -297,6 +297,7 @@ def generate_movie_recommendations(n_clicks, *ratings):
         movies2 = get_movies().loc[:,['MovieID','Title','image_url']]
         
         recommendations = movies2.merge(predictions, how = 'inner', left_on='MovieID',right_on ='movie_id')
+        rec_dict = dict(zip(recommendations['Title'], recommendations['image_url']))
         
         movie_recommendations = [
             html.Div(
@@ -306,7 +307,7 @@ def generate_movie_recommendations(n_clicks, *ratings):
                 ],
                 style={'margin-bottom': '20px'}
             )
-            for title, image_url in zip(recommendations['Title'], recommendations['image_url'])
+            for title, image_url in rec_dict.items()
         ]
 
         return movie_recommendations
