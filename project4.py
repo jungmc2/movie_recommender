@@ -142,9 +142,8 @@ app.layout = dbc.Container(
                                                         html.Img(src='https://liangfgithub.github.io/MovieImages/1.jpg', style={'width': '100%', 'height': '200px'}),
                                                         dcc.Input(id='rating1', type='number', min=1, max=5, step=1, value=1),
                                                     ],
-                                                    md=3,  # Adjust the column width based on your preference
+                                                    md=3,  
                                                 ),
-                                                # Repeat the structure for other images and columns
                                                 
                                                 dbc.Col(
                                                     [
@@ -160,9 +159,8 @@ app.layout = dbc.Container(
                                                         html.Img(src='https://liangfgithub.github.io/MovieImages/10.jpg', style={'width': '100%', 'height': '200px'}),
                                                         dcc.Input(id='rating3', type='number', min=1, max=5, step=1, value=1),
                                                     ],
-                                                    md=3,  # Adjust the column width based on your preference
+                                                    md=3,  
                                                 ),
-                                                # Repeat the structure for other images and columns
                                                 
                                                 dbc.Col(
                                                     [
@@ -173,7 +171,6 @@ app.layout = dbc.Container(
                                                     md=3,
                                                 )
                                                 
-                                                # Repeat the structure for other images and columns
                                             ],
                                             className="mb-4",
                                         ),
@@ -186,9 +183,8 @@ app.layout = dbc.Container(
                                                         html.Img(src='https://liangfgithub.github.io/MovieImages/18.jpg', style={'width': '100%', 'height': '200px'}),
                                                         dcc.Input(id='rating5', type='number', min=1, max=5, step=1, value=1),
                                                     ],
-                                                    md=3,  # Adjust the column width based on your preference
+                                                    md=3,  
                                                 ),
-                                                # Repeat the structure for other images and columns
                                                 
                                                 dbc.Col(
                                                     [
@@ -200,13 +196,12 @@ app.layout = dbc.Container(
                                                 ),
                                                     dbc.Col(
                                                     [
-                                                        html.H3('Sudden Death (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),  # Adjust font size and alignment
+                                                        html.H3('Sudden Death (1995)', style={'fontSize': '20px', 'textAlign': 'center'}), 
                                                         html.Img(src='https://liangfgithub.github.io/MovieImages/9.jpg', style={'width': '100%', 'height': '200px'}),
                                                         dcc.Input(id='rating7', type='number', min=1, max=5, step=1, value=1),
                                                     ],
-                                                    md=3,  # Adjust the column width based on your preference
+                                                    md=3, 
                                                 ),
-                                                # Repeat the structure for other images and columns
                                                 
                                                 dbc.Col(
                                                     [
@@ -217,7 +212,6 @@ app.layout = dbc.Container(
                                                     md=3,
                                                 )
                                                 
-                                                # Repeat the structure for other images and columns
                                             ],
                                             className="mb-4",
                                         ),                                        dbc.Button(
@@ -256,7 +250,7 @@ def update_movie_list(n_clicks, selected_genre):
                     html.H3(title),
                     html.Img(src=image_url, style={'width': '200px', 'height': '200px'}),
                 ],
-                style={'margin-bottom': '20px'}  # Add margin to separate movie elements
+                style={'margin-bottom': '20px'} 
             )
             for title, image_url in zip(selected_data['Title'], selected_data['image_url'])
         ]
@@ -272,16 +266,13 @@ def update_movie_list(n_clicks, selected_genre):
 def update_ratings_list(n_clicks, *ratings):
     global user_ratings
     if n_clicks > 0:
-        # Store the ratings in the global variable
         user_ratings = list(ratings)
         return html.P(f'Ratings submitted: {user_ratings}')
     return []
 
-# Your function to use the combined data
 def process_ratings_data(movie_data, user_ratings):
     combined_data = []
 
-    # Assuming 'Title' is a key in your movie_data
     for title, rating in zip(to_rate, user_ratings):
         combined_data.append({'MovieID': title, 'Rating': rating})
 
@@ -297,7 +288,6 @@ def process_ratings_data(movie_data, user_ratings):
 def generate_movie_recommendations(n_clicks, *ratings):
     global user_ratings
     if n_clicks > 0:
-        # Store the ratings in the global variable
         user_ratings = list(ratings)
         to_rate = ['m1','m3','m10','m15','m18','m27','m9','m21']
         combined = pd.DataFrame({'newuser':ratings}, index=to_rate)
@@ -310,7 +300,6 @@ def generate_movie_recommendations(n_clicks, *ratings):
         
         recommendations = movies2.merge(predictions, how = 'inner', left_on='MovieID',right_on ='movie_id')
         
-        # Generate HTML for displaying recommendations
         movie_recommendations = [
             html.Div(
                 [
