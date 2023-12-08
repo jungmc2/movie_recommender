@@ -33,6 +33,8 @@ def get_similarity():
     git_url = "https://raw.githubusercontent.com/jungmc2/movie_recommender/main/"
     return pd.read_csv(git_url + 's_matrix.csv', index_col = 0)
 
+system2_df = get_system_data()
+
 
 # In[25]:
 
@@ -300,7 +302,6 @@ def generate_movie_recommendations(n_clicks, *ratings):
         to_rate = ['m1','m3','m10','m15','m18','m27','m9','m21']
         combined = pd.DataFrame({'newuser':ratings}, index=to_rate)
         
-        system2_df = get_system_data()
         newuser = system2_df.merge(combined, how='left', left_index=True, right_index=True)['newuser']
         predictions = myIBCF(newuser)
         
