@@ -303,7 +303,7 @@ def generate_movie_recommendations(n_clicks, *ratings):
             html.Div(
                 [
                     html.H3(title, style={'fontSize': '20px'}),
-                    html.Img(src=image_url, style={'width': '50%', 'height': '200px'}),
+                    html.Img(src=image_url, style={'width': '200px', 'height': '200px'}),
                 ],
                 style={'margin-bottom': '20px'}
             )
