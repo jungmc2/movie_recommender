@@ -296,7 +296,6 @@ def generate_movie_recommendations(n_clicks, *ratings):
         predictions = myIBCF(newuser)
         
         movies2 = get_movies().loc[:,['MovieID','Title','image_url']]
-        movies2['MovieID'] = movies2['MovieID'].apply(lambda x: 'm' + str(x))
         
         recommendations = movies2.merge(predictions, how = 'inner', left_on='MovieID',right_on ='movie_id')
         
