@@ -17,21 +17,22 @@ import numpy as np
 def get_movies():
     git_url = "https://raw.githubusercontent.com/jungmc2/movie_recommender/main/"
     
-    movies = pd.read_csv(git_url + 'movies.dat', sep='::', engine = 'python',
-                     encoding="ISO-8859-1", header = None)
-    movies.columns = ['MovieID', 'Title', 'Genres']
+    # movies = pd.read_csv(git_url + 'movies.dat', sep='::', engine = 'python',
+    #                  encoding="ISO-8859-1", header = None)
+    # movies.columns = ['MovieID', 'Title', 'Genres']
     
-    small_image_url = "https://liangfgithub.github.io/MovieImages/"
-    movies['image_url'] = movies.MovieID.apply(lambda x: small_image_url + str(x) + ".jpg")
+    # small_image_url = "https://liangfgithub.github.io/MovieImages/"
+    # movies['image_url'] = movies.MovieID.apply(lambda x: small_image_url + str(x) + ".jpg")
+    movies = pd.read_csv(git_url + 'movies_subset-2.csv', index_col=0)
     return movies
 
 def get_system_data():
     git_url = "https://raw.githubusercontent.com/jungmc2/movie_recommender/main/"
-    return pd.read_csv(git_url + 'system2_df.csv', index_col=0)
+    return pd.read_csv(git_url + 'system2_subset.csv', index_col=0)
 
 def get_similarity():
     git_url = "https://raw.githubusercontent.com/jungmc2/movie_recommender/main/"
-    return pd.read_csv(git_url + 's_matrix_subset.csv', index_col = 0)
+    return pd.read_csv(git_url + 's_matrix_subset-2.csv', index_col = 0)
 
 
 # In[25]:
