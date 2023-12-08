@@ -243,6 +243,8 @@ app.layout = dbc.Container(
 def update_movie_list(n_clicks, selected_genre):
     if n_clicks > 0:
         selected_data = pd.read_csv(git_url + selected_genre + ".csv")
+        selected_data_dict = dict(zip(selected_data['Title'],selected_data['image_url']))
+                                      
         movie_list = [
             html.Div(
             [
@@ -251,7 +253,7 @@ def update_movie_list(n_clicks, selected_genre):
             ],
             style={'margin-bottom': '20px'} 
         )
-            for title, image_url in zip(selected_data['Title'], selected_data['image_url'])
+            for title, image_url in selected_data_dict.items()
         ]
         return movie_list
     return ""
