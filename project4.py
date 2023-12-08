@@ -94,8 +94,8 @@ server = app.server
 app.layout = dbc.Container(
     [
         dbc.Row(
-            dbc.Col(html.H1("Movie Recommender App", className="text-center mb-4")),
-            className="mb-4",
+            dbc.Col(html.H1("Movie Recommender App", className="text-center object")),
+            className="object",
         ),
         dcc.Tabs(
             [
@@ -110,7 +110,7 @@ app.layout = dbc.Container(
                                     options=[{'label': option, 'value': option} for option in genres],
                                     value=genres[0],
                                     multi=False,
-                                    className="mb-4",
+                                    className="object",
                                 ),
                                 html.P('Step 2: View movie recommendations'),
                                 dbc.Button(
@@ -118,9 +118,9 @@ app.layout = dbc.Container(
                                     id='display-button',
                                     n_clicks=0,
                                     color='primary',
-                                    className="mb-4",
+                                    className="object",
                                 ),
-                                html.Div(id='movie-list-container'),
+                                html.Div(id='movie-recommendations'),
                             ]
                         )
                     ],
@@ -171,7 +171,7 @@ app.layout = dbc.Container(
                                                 )
                                                 
                                             ],
-                                            className="mb-4",
+                                            className="object",
                                         ),
                                     
                                        dbc.Row(
@@ -212,21 +212,21 @@ app.layout = dbc.Container(
                                                 )
                                                 
                                             ],
-                                            className="mb-4",
+                                            className="object",
                                         ),                                        dbc.Button(
                                             'Submit Ratings',
                                             id='submit-ratings-button',
                                             n_clicks=0,
                                             color='primary',
-                                            className="mb-4",
+                                            className="object",
                                         ),
                                     ]
                                 ),
-                                html.Div(id='movie-list-container2'),
+                                html.Div(id='movie-recommendations2'),
                             ]
                         ),
                         html.H3("Here are some movie recommendations"),
-                        html.Div(id='movie-recommendations'),
+                        html.Div(id='movie-recommendations2'),
                     ],
                 ),
             ]
@@ -236,7 +236,7 @@ app.layout = dbc.Container(
 )
 
 @app.callback(
-    Output('movie-list-container', 'children'),
+    Output('movie-recommendations', 'children'),
     [Input('display-button', 'n_clicks')],
     [State('dropdown-menu', 'value')]
 )
@@ -258,7 +258,7 @@ def update_movie_list(n_clicks, selected_genre):
 
 
 @app.callback(
-    Output('movie-list-container2', 'children'),
+    Output('movie-recommendations2', 'children'),
     [Input('submit-ratings-button', 'n_clicks')],
     [State(f'rating{i}', 'value') for i in range(1, 9)]
 )
@@ -280,7 +280,7 @@ def process_ratings_data(movie_data, user_ratings):
 
 
 @app.callback(
-    Output('movie-recommendations', 'children'),
+    Output('movie-recommendations2', 'children'),
     [Input('submit-ratings-button', 'n_clicks')],
     [State(f'rating{i}', 'value') for i in range(1, 9)]
 )
