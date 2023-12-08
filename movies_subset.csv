@@ -1,0 +1,46 @@
+,MovieID,Title,Genres,image_url
+0,m1,Toy Story (1995),Animation|Children's|Comedy,https://liangfgithub.github.io/MovieImages/1.jpg
+2,m3,Grumpier Old Men (1995),Comedy|Romance,https://liangfgithub.github.io/MovieImages/3.jpg
+8,m9,Sudden Death (1995),Action,https://liangfgithub.github.io/MovieImages/9.jpg
+9,m10,GoldenEye (1995),Action|Adventure|Thriller,https://liangfgithub.github.io/MovieImages/10.jpg
+14,m15,Cutthroat Island (1995),Action|Adventure|Romance,https://liangfgithub.github.io/MovieImages/15.jpg
+17,m18,Four Rooms (1995),Thriller,https://liangfgithub.github.io/MovieImages/18.jpg
+20,m21,Get Shorty (1995),Action|Comedy|Drama,https://liangfgithub.github.io/MovieImages/21.jpg
+21,m22,Copycat (1995),Crime|Drama|Thriller,https://liangfgithub.github.io/MovieImages/22.jpg
+22,m23,Assassins (1995),Thriller,https://liangfgithub.github.io/MovieImages/23.jpg
+23,m24,Powder (1995),Drama|Sci-Fi,https://liangfgithub.github.io/MovieImages/24.jpg
+24,m25,Leaving Las Vegas (1995),Drama|Romance,https://liangfgithub.github.io/MovieImages/25.jpg
+25,m26,Othello (1995),Drama,https://liangfgithub.github.io/MovieImages/26.jpg
+26,m27,Now and Then (1995),Drama,https://liangfgithub.github.io/MovieImages/27.jpg
+27,m28,Persuasion (1995),Romance,https://liangfgithub.github.io/MovieImages/28.jpg
+28,m29,"City of Lost Children, The (1995)",Adventure|Sci-Fi,https://liangfgithub.github.io/MovieImages/29.jpg
+29,m30,Shanghai Triad (Yao a yao yao dao waipo qiao) (1995),Drama,https://liangfgithub.github.io/MovieImages/30.jpg
+30,m31,Dangerous Minds (1995),Drama,https://liangfgithub.github.io/MovieImages/31.jpg
+31,m32,Twelve Monkeys (1995),Drama|Sci-Fi,https://liangfgithub.github.io/MovieImages/32.jpg
+32,m33,Wings of Courage (1995),Adventure|Romance,https://liangfgithub.github.io/MovieImages/33.jpg
+33,m34,Babe (1995),Children's|Comedy|Drama,https://liangfgithub.github.io/MovieImages/34.jpg
+34,m35,Carrington (1995),Drama|Romance,https://liangfgithub.github.io/MovieImages/35.jpg
+35,m36,Dead Man Walking (1995),Drama,https://liangfgithub.github.io/MovieImages/36.jpg
+36,m37,Across the Sea of Time (1995),Documentary,https://liangfgithub.github.io/MovieImages/37.jpg
+37,m38,It Takes Two (1995),Comedy,https://liangfgithub.github.io/MovieImages/38.jpg
+38,m39,Clueless (1995),Comedy|Romance,https://liangfgithub.github.io/MovieImages/39.jpg
+39,m40,"Cry, the Beloved Country (1995)",Drama,https://liangfgithub.github.io/MovieImages/40.jpg
+40,m41,Richard III (1995),Drama|War,https://liangfgithub.github.io/MovieImages/41.jpg
+41,m42,Dead Presidents (1995),Action|Crime|Drama,https://liangfgithub.github.io/MovieImages/42.jpg
+42,m43,Restoration (1995),Drama,https://liangfgithub.github.io/MovieImages/43.jpg
+43,m44,Mortal Kombat (1995),Action|Adventure,https://liangfgithub.github.io/MovieImages/44.jpg
+44,m45,To Die For (1995),Comedy|Drama,https://liangfgithub.github.io/MovieImages/45.jpg
+45,m46,How to Make an American Quilt (1995),Drama|Romance,https://liangfgithub.github.io/MovieImages/46.jpg
+46,m47,Seven (Se7en) (1995),Crime|Thriller,https://liangfgithub.github.io/MovieImages/47.jpg
+47,m48,Pocahontas (1995),Animation|Children's|Musical|Romance,https://liangfgithub.github.io/MovieImages/48.jpg
+48,m49,When Night Is Falling (1995),Drama|Romance,https://liangfgithub.github.io/MovieImages/49.jpg
+49,m50,"Usual Suspects, The (1995)",Crime|Thriller,https://liangfgithub.github.io/MovieImages/50.jpg
+50,m51,Guardian Angel (1994),Action|Drama|Thriller,https://liangfgithub.github.io/MovieImages/51.jpg
+51,m52,Mighty Aphrodite (1995),Comedy,https://liangfgithub.github.io/MovieImages/52.jpg
+52,m53,Lamerica (1994),Drama,https://liangfgithub.github.io/MovieImages/53.jpg
+53,m54,"Big Green, The (1995)",Children's|Comedy,https://liangfgithub.github.io/MovieImages/54.jpg
+54,m55,Georgia (1995),Drama,https://liangfgithub.github.io/MovieImages/55.jpg
+55,m56,Kids of the Round Table (1995),Adventure|Children's|Fantasy,https://liangfgithub.github.io/MovieImages/56.jpg
+56,m57,Home for the Holidays (1995),Drama,https://liangfgithub.github.io/MovieImages/57.jpg
+57,m58,"Postino, Il (The Postman) (1994)",Drama|Romance,https://liangfgithub.github.io/MovieImages/58.jpg
+58,m59,"Confessional, The (Le Confessionnal) (1995)",Drama|Mystery,https://liangfgithub.github.io/MovieImages/59.jpg
