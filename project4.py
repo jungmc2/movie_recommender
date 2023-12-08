@@ -23,16 +23,16 @@ def get_movies():
     
     # small_image_url = "https://liangfgithub.github.io/MovieImages/"
     # movies['image_url'] = movies.MovieID.apply(lambda x: small_image_url + str(x) + ".jpg")
-    movies = pd.read_csv(git_url + 'movies_subset-2.csv', index_col=0)
+    movies = pd.read_csv(git_url + 'movies_subset_final.csv', index_col=0)
     return movies
 
 def get_system_data():
     git_url = "https://raw.githubusercontent.com/jungmc2/movie_recommender/main/"
-    return pd.read_csv(git_url + 'system2_subset.csv', index_col=0)
+    return pd.read_csv(git_url + 'system2_subset_final.csv', index_col=0)
 
 def get_similarity():
     git_url = "https://raw.githubusercontent.com/jungmc2/movie_recommender/main/"
-    return pd.read_csv(git_url + 's_matrix_subset-2.csv', index_col = 0)
+    return pd.read_csv(git_url + 's_subset_final.csv', index_col = 0)
 
 
 # In[25]:
@@ -137,8 +137,8 @@ app.layout = dbc.Container(
                                             [
                                                 dbc.Col(
                                                     [
-                                                        html.H3('Toy Story (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),  # Adjust font size and alignment
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/1.jpg', style={'width': '100%', 'height': '200px'}),
+                                                        html.H3('Tom and Huck (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),  # Adjust font size and alignment
+                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/8.jpg', style={'width': '100%', 'height': '200px'}),
                                                         dcc.Input(id='rating1', type='number', min=1, max=5, step=1, value=1),
                                                     ],
                                                     md=3,  
@@ -146,16 +146,16 @@ app.layout = dbc.Container(
                                                 
                                                 dbc.Col(
                                                     [
-                                                        html.H3('Grumpier Old Men (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/3.jpg', style={'width': '100%', 'height': '200px'}),
+                                                        html.H3('Across the Sea of Time (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),
+                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/37.jpg', style={'width': '100%', 'height': '200px'}),
                                                         dcc.Input(id='rating2', type='number', min=1, max=5, step=1, value=1),
                                                     ],
                                                     md=3,
                                                 ),
                                                     dbc.Col(
                                                     [
-                                                        html.H3('GoldenEye (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),  # Adjust font size and alignment
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/10.jpg', style={'width': '100%', 'height': '200px'}),
+                                                        html.H3('It Takes Two (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),  # Adjust font size and alignment
+                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/38.jpg', style={'width': '100%', 'height': '200px'}),
                                                         dcc.Input(id='rating3', type='number', min=1, max=5, step=1, value=1),
                                                     ],
                                                     md=3,  
@@ -163,8 +163,8 @@ app.layout = dbc.Container(
                                                 
                                                 dbc.Col(
                                                     [
-                                                        html.H3('Cutthroat Island (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/15.jpg', style={'width': '100%', 'height': '200px'}),
+                                                        html.H3('Big Green, The (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),
+                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/54.jpg', style={'width': '100%', 'height': '200px'}),
                                                         dcc.Input(id='rating4', type='number', min=1, max=5, step=1, value=1),
                                                     ],
                                                     md=3,
@@ -178,7 +178,7 @@ app.layout = dbc.Container(
                                             [
                                                 dbc.Col(
                                                     [
-                                                        html.H3('Four Rooms (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),  # Adjust font size and alignment
+                                                        html.H3('Two if by Sea (1996)', style={'fontSize': '20px', 'textAlign': 'center'}),  # Adjust font size and alignment
                                                         html.Img(src='https://liangfgithub.github.io/MovieImages/18.jpg', style={'width': '100%', 'height': '200px'}),
                                                         dcc.Input(id='rating5', type='number', min=1, max=5, step=1, value=1),
                                                     ],
@@ -187,16 +187,16 @@ app.layout = dbc.Container(
                                                 
                                                 dbc.Col(
                                                     [
-                                                        html.H3('Now and Then (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/27.jpg', style={'width': '100%', 'height': '200px'}),
+                                                        html.H3('Big Bully (1996)', style={'fontSize': '20px', 'textAlign': 'center'}),
+                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/75.jpg', style={'width': '100%', 'height': '200px'}),
                                                         dcc.Input(id='rating6', type='number', min=1, max=5, step=1, value=1),
                                                     ],
                                                     md=3,
                                                 ),
                                                     dbc.Col(
                                                     [
-                                                        html.H3('Sudden Death (1995)', style={'fontSize': '20px', 'textAlign': 'center'}), 
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/9.jpg', style={'width': '100%', 'height': '200px'}),
+                                                        html.H3('Nico Icon (1995)', style={'fontSize': '20px', 'textAlign': 'center'}), 
+                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/77.jpg', style={'width': '100%', 'height': '200px'}),
                                                         dcc.Input(id='rating7', type='number', min=1, max=5, step=1, value=1),
                                                     ],
                                                     md=3, 
@@ -204,8 +204,8 @@ app.layout = dbc.Container(
                                                 
                                                 dbc.Col(
                                                     [
-                                                        html.H3('Get Shorty (1995)', style={'fontSize': '20px', 'textAlign': 'center'}),
-                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/21.jpg', style={'width': '100%', 'height': '200px'}),
+                                                        html.H3('Shopping (1994)', style={'fontSize': '20px', 'textAlign': 'center'}),
+                                                        html.Img(src='https://liangfgithub.github.io/MovieImages/98.jpg', style={'width': '100%', 'height': '200px'}),
                                                         dcc.Input(id='rating8', type='number', min=1, max=5, step=1, value=1),
                                                     ],
                                                     md=3,
@@ -287,7 +287,7 @@ def generate_movie_recommendations(n_clicks, *ratings):
     global user_ratings
     if n_clicks > 0:
         user_ratings = list(ratings)
-        to_rate = ['m1','m3','m10','m15','m18','m27','m9','m21']
+        to_rate = ['m8','m37','m38','m54','m64','m75','m77','m98']
         combined = pd.DataFrame({'newuser':ratings}, index=to_rate)
 
         system2_df = get_system_data()
