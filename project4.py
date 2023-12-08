@@ -31,9 +31,7 @@ def get_system_data():
 
 def get_similarity():
     git_url = "https://raw.githubusercontent.com/jungmc2/movie_recommender/main/"
-    return pd.read_csv(git_url + 's_matrix.csv', index_col = 0)
-
-system2_df = get_system_data()
+    return pd.read_csv(git_url + 's_matrix_subset.csv', index_col = 0)
 
 
 # In[25]:
